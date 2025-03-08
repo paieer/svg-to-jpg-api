@@ -18,7 +18,7 @@ app.post('/convert', async (req, res) => {
         }
 
         const jpgBuffer = await sharp(svgBuffer, { density: 300 }) // Adjust density as needed
-            .jpeg({ quality: 80 }) // Adjust quality as needed
+            .jpeg({ quality: 40 }) // Adjust quality as needed
             .toBuffer();
 
         res.set('Content-Type', 'image/jpeg');
