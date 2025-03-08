@@ -6,7 +6,6 @@ const port = process.env.PORT || 3000; // Use environment variable for port
 
 sharp.cache(false);
 sharp.concurrency(10);
-sharp.limitInputPixels(0);
 
 app.use(compression());
 app.use(express.raw({ limit: '10mb', type: 'image/svg+xml' })); // Increase limit and set correct MIME type
