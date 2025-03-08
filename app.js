@@ -18,7 +18,7 @@ app.post('/convert', async (req, res) => {
         }
 
         const jpgBuffer = await sharp(svgBuffer, { density: 300 }) // Adjust density as needed
-            .jpeg({ quality: 40 }) // Adjust quality as needed
+            .jpeg({ quality: parseInt(req.query.quality) || 40 }) // Get quality from query params or default to 40
             .toBuffer();
 
         res.set('Content-Type', 'image/jpeg');
