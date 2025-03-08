@@ -1,10 +1,12 @@
 const express = require('express');
 const sharp = require('sharp');
+const compression = require('compression');
 const app = express();
 const port = process.env.PORT || 3000; // Use environment variable for port
 
-app.use(express.raw({ limit: '5mb', type: 'image/svg+xml' })); // Increase limit and set correct MIME type
-app.use(express.json({ limit: '5mb' })); // Allow JSON input
+app.use(compression());
+app.use(express.raw({ limit: '10mb', type: 'image/svg+xml' })); // Increase limit and set correct MIME type
+// app.use(express.json({ limit: '10mb' })); // Allow JSON input
 
 app.post('/convert', async (req, res) => {
     try {
